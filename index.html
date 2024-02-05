@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
+    <style>
+        #map {
+            height: 600px;
+        }
+        #layerSwitch {
+            position: absolute;
+            top: 10px;
+            right: 200px;
+            z-index: 1000;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+        #fileInput {
+            display: none;
+        }
+        #searchControl {
+            position: absolute;
+            top: 10px;
+            left: 60px;
+            z-index: 1000;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+        #editControl {
+            position: absolute;
+            top: 10px;
+            left: 350px;
+            z-index: 1000;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+        /* @media only screen and (min-width: 600px) {
+            #layerSwitch, #searchControl, #editControl {
+                top: 60px;
+            }
+            #searchControl {
+                left: 120px;
+            }
+            #editControl {
+                left: 230px;
+            }
+        } */
+    </style>
+    <title>Spatial Data Web App</title>
+</head>
+<body>
+
+<div id="map"></div>
+<div id="layerSwitch">
+    <label for="mapLayer">Choose Map Layer:</label>
+    <select id="mapLayer" onchange="changeMapLayer()">
+        <option value="osm">OpenStreetMap</option>
+        <option value="satellite">Satellite Imagery</option>
+    </select>
+    <br />
+    <input type="file" id="fileInput" onchange="loadSpatialData()" accept=".geojson,.json,.kml,.shp,.zip" />
+    <label for="fileInput">Upload Spatial Data</label>
+</div>
+<div id="searchControl">
+    <input type="text" id="addressInput" placeholder="Enter address">
+    <button onclick="searchAddress()">Search</button>
+</div>
+<div id="editControl">
+    <button onclick="startEditing()">Start Editing</button>
+    <button onclick="stopEditing()">Stop Editing</button>
+    <button onclick="deleteSelected()">Delete Selected</button>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+<script src="https://unpkg.com/leaflet-ajax/dist/leaflet.ajax.min.js"></script>
+<script src="https://api.opencagedata.com/geocode/v1/leaflet.js?key=YOUR_OPENCAGE_API_KEY"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
+
+
+ 
