@@ -1,5 +1,6 @@
-Deployed Project Link:https://ansarifareen.github.io/GIS_Web_App/
 # GIS_Web_App
+Deployed Project Link:https://ansarifareen.github.io/GIS_Web_App/
+
 Try to implement all these functions in this:
 1. Map Visualization:
 Implements an interactive map interface with Zoom and Pan. Include options 
